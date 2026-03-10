@@ -633,17 +633,14 @@ export default function App(){
             {s:"background:#fee2e2;border:1px solid #fca5a5",d:"🔴",l:"Vermelho — Crítico/Urgente",desc:"Práticas que a empresa não faz"},
 
             {s:"background:#f1f5f9;border:1px solid #cbd5e1",d:"⬜",l:"N/A — Não se aplica",desc:"Práticas que não se aplicam à sua atividade"}].map(l=>(
-
             <div key={l.l} style={{borderRadius:10,padding:12,...Object.fromEntries(l.s.split(";").filter(Boolean).map(x=>{const[k,v]=x.split(":");return[k.trim().replace(/-([a-z])/g,(_,c)=>c.toUpperCase()),v.trim()];}))}}>
-
               <div style={{fontSize:17,marginBottom:4}}>{l.d}</div>
-
               <div style={{fontSize:12,fontWeight:600}}>{l.l}</div>
-
               <div style={{fontSize:11,color:"#64748b",marginTop:2}}>{l.desc}</div>
-
             </div>
-
-            );
-          
-          }
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
