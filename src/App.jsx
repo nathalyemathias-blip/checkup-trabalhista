@@ -448,35 +448,27 @@ export default function App(){
 
             <div style={{padding:"4px 16px"}}>
 
-              {MODS.map(m=>{
-
-                const s=scores[m.id];
-
-                if(s===null)return(<div key={m.id} style={{display:"flex",alignItems:"center",gap:8,padding:"9px 0",borderBottom:"1px solid #f8fafc",flexWrap:"wrap"}}>
-
-                  <div style={{flex:1,minWidth:120,fontSize:13}}>{m.titulo}</div>
-
-                  <span style={{fontSize:11,color:"#94a3b8"}}>N/A — não avaliado</span>
-
-                </div>);
-
-                const nv=nivel(s);const nvs=NS[nv];
-
-                return(<div key={m.id} style={{display:"flex",alignItems:"center",gap:8,padding:"9px 0",borderBottom:"1px solid #f8fafc",flexWrap:"wrap"}}>
-
-                  <div style={{flex:1,minWidth:120,fontSize:13,color:"#1e293b"}}>{m.titulo}</div>
-
-                  <div style={{fontSize:10,color:"#94a3b8"}}>peso {m.peso}x</div>
-
-                  <div style={{width:60,height:5,background:"#e2e8f0",borderRadius:10,overflow:"hidden"}}>
-
-                    <div style={{ height: "100%", borderRadius: 10, width: `${s}%`,...Object.fromEntries(nvs.bar.split(";").filter(Boolean).map(x=>{const[k,v]=x.split(":");return[k.trim().replace(/-([a-z])/g,(_,c)=>c.toUpperCase()),v.trim()];}))}}/></div>
-
-                  <div style={{fontSize:13,fontWeight:700,minWidth:32,...Object.fromEntries(nvs.txt.split(";").filter(Boolean).map(x=>{const[k,v]=x.split(":");return[k.trim().replace(/-([a-z])/g,(_,c)=>c.toUpperCase()),v.trim()];}))}}>{s}%</div>
-
-                </div>);
-
-              })}
+             {MODS.map(m => {
+  const s = scores[m.id];
+  if (s === null) return (
+    <div key={m.id} style={{ display: "flex", alignItems: "center", gap: 8, padding: "9px 0", borderBottom: "1px solid #f8fafc", flexWrap: "wrap" }}>
+      <div style={{ flex: 1, minWidth: 120, fontSize: 13 }}>{m.titulo}</div>
+      <span style={{ fontSize: 11, color: "#94a3b8" }}>N/A — não avaliado</span>
+    </div>
+  );
+  const nv = nivel(s); 
+  const nvs = NS[nv];
+  return (
+    <div key={m.id} style={{ display: "flex", alignItems: "center", gap: 8, padding: "9px 0", borderBottom: "1px solid #f8fafc", flexWrap: "wrap" }}>
+      <div style={{ flex: 1, minWidth: 120, fontSize: 13, color: "#1e293b" }}>{m.titulo}</div>
+      <div style={{ fontSize: 10, color: "#94a3b8" }}>peso {m.peso}x</div>
+      <div style={{ width: 60, height: 5, background: "#e2e8f0", borderRadius: 10, overflow: "hidden" }}>
+        <div style={{ height: "100%", borderRadius: 10, width: `${s}%`, ...Object.fromEntries(nvs.bar.split(";").filter(Boolean).map(x => { const [k, v] = x.split(":"); return [k.trim().replace(/-([a-z])/g, (_, c) => c.toUpperCase()), v.trim()]; })) }} />
+      </div>
+      <div style={{ fontSize: 13, fontWeight: 700, minWidth: 32, ...Object.fromEntries(nvs.txt.split(";").filter(Boolean).map(x => { const [k, v] = x.split(":"); return [k.trim().replace(/-([a-z])/g, (_, c) => c.toUpperCase()), v.trim()]; })) }}>{s}%</div>
+    </div>
+  );
+})}
 
             </div>
 
