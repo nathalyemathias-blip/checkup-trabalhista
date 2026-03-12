@@ -243,8 +243,9 @@ export default function App(){
                   <div style={{flex:1,minWidth:120,fontSize:13,color:"#1e293b"}}>{m.titulo}</div>
                   <div style={{fontSize:10,color:"#94a3b8"}}>peso {m.peso}x</div>
                   <div style={{width:60,height:5,background:"#e2e8f0",borderRadius:10,overflow:"hidden"}}>
-                    <div style={{height:"100%",borderRadius:10,width:`${s}%`,...Object.fromEntries(nvs.bar.split(";").filter(Boolean).map(x=>{const[k,v]=x.split(":");return[k.trim().replace(/-([a-z])/g,(_,c)=>c.toUpperCase()),v.trim()];}))}}/></div>
-                  <div style={{fontSize:13,fontWeight:700,minWidth:32,...Object.fromEntries(nvs.txt.split(";").filter(Boolean).map(x=>{const[k,v]=x.split(":");return[k.trim().replace(/-([a-z])/g,(_,c)=>c.toUpperCase()),v.trim()];}))}}}>{s}%</div>
+                 <div style={{ height: "100%", borderRadius: 10, width: `${s}%`, ...Object.fromEntries(nvs.bar.split(";").filter(Boolean).map(x => { const [k, v] = x.split(":"); return [k.trim().replace(/-([a-z])/g, (_, c) => c.toUpperCase()), v.trim()]; })) }} />
+</div>
+<div style={{ fontSize: 13, fontWeight: 700, minWidth: 32, ...Object.fromEntries(nvs.txt.split(";").filter(Boolean).map(x => { const [k, v] = x.split(":"); return [k.trim().replace(/-([a-z])/g, (_, c) => c.toUpperCase()), v.trim()]; })) }}>{s}%</div>
                 </div>);
               })}
             </div>
